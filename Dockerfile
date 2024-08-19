@@ -16,12 +16,12 @@ RUN apk update && apk add --no-cache --virtual .gyp \
     && tar zxvf ${REDISINSIGHT_VERSION}.tar.gz \ 
     && mv RedisInsight-${REDISINSIGHT_VERSION} redisinsight \ 
     && cd redisinsight \ 
-    && yarn --ignore-scripts install --frozen-lockfile \
-    && yarn --cwd redisinsight/api install \
+    && yarn --ignore-scripts install --frozen-lockfile --network-timeout 100000 \
+    && yarn --cwd redisinsight/api install --network-timeout 100000 \
     && yarn build:ui \
     && yarn build:statics \
     && yarn build:api \
-    && yarn --cwd ./redisinsight/api install --production \
+    && yarn --cwd ./redisinsight/api install --production --network-timeout 100000 \
     && cp redisinsight/api/.yarnclean.prod redisinsight/api/.yarnclean \
     && yarn --cwd ./redisinsight/api autoclean --force
     
