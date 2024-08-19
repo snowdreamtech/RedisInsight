@@ -9,7 +9,9 @@ RUN mkdir /workspace
 WORKDIR /workspace
 
 RUN apk update && apk add --no-cache --virtual .gyp \
-    python3 \
+    python3=3.12.3-r1 \
+    py3-pip \
+    py3-setuptools \
     make \
     g++ \
     && wget -c https://github.com/RedisInsight/RedisInsight/archive/refs/tags/${REDISINSIGHT_VERSION}.tar.gz \ 
@@ -24,7 +26,7 @@ RUN apk update && apk add --no-cache --virtual .gyp \
     && yarn --cwd ./redisinsight/api install --production --network-timeout 100000 \
     && cp redisinsight/api/.yarnclean.prod redisinsight/api/.yarnclean \
     && yarn --cwd ./redisinsight/api autoclean --force
-    
+
 
 
 FROM snowdreamtech/node:20.15.1 
