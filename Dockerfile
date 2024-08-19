@@ -14,6 +14,7 @@ RUN apk update && apk add --no-cache --virtual .gyp \
     py3-setuptools \
     make \
     g++ \
+    gcompat \
     && wget -c https://github.com/RedisInsight/RedisInsight/archive/refs/tags/${REDISINSIGHT_VERSION}.tar.gz \ 
     && tar zxvf ${REDISINSIGHT_VERSION}.tar.gz \ 
     && mv RedisInsight-${REDISINSIGHT_VERSION} redisinsight \ 
