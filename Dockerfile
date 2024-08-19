@@ -48,9 +48,9 @@ RUN apk update && apk upgrade --no-cache libcrypto3 libssl3
 WORKDIR /workspace
 
 # copy artifacts built in previous stage to this one
-COPY --from=builder --chown=node:node /workspace/redisinsight/api/dist ./redisinsight/api/dist
-COPY --from=builder --chown=node:node /workspace/redisinsight/api/node_modules ./redisinsight/api/node_modules
-COPY --from=builder --chown=node:node /workspace/redisinsight/ui/dist ./redisinsight/ui/dist
+COPY --from=builder --chown=node:node /workspace/redisinsight/redisinsight/api/dist ./redisinsight/api/dist
+COPY --from=builder --chown=node:node /workspace/redisinsight/redisinsight/api/node_modules ./redisinsight/api/node_modules
+COPY --from=builder --chown=node:node /workspace/redisinsight/redisinsight/ui/dist ./redisinsight/ui/dist
 
 # folder to store local database, plugins, logs and all other files
 RUN mkdir -p /data && chown -R node:node /data
