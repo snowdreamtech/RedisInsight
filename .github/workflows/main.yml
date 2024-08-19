@@ -62,7 +62,7 @@ jobs:
               http_proxy=${{ env.http_proxy }}
               https_proxy=${{ env.http_proxy }}
               env.no_proxy=${{ env.no_proxy }}
-            platforms: linux/arm/v7
+            platforms: linux/arm64
             push: true
             tags: |
               snowdreamtech/redisinsight:latest
