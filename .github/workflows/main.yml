@@ -3,7 +3,7 @@ name: GitHub Actions Continuous Delivery
 on:
   push:
     branches:
-      - main  
+      - dev  
     tags:
       - '*'
   workflow_dispatch:
@@ -63,7 +63,7 @@ jobs:
               https_proxy=${{ env.http_proxy }}
               env.no_proxy=${{ env.no_proxy }}
             platforms: linux/amd64
-            push: true
+            push: false
             tags: |
               snowdreamtech/redisinsight:latest
               snowdreamtech/redisinsight:2.54
