@@ -9,7 +9,7 @@ RUN mkdir /workspace
 WORKDIR /workspace
 
 RUN apk update && apk add --no-cache --virtual .gyp \
-    python3=3.12.3-r1 \
+    python3=3.12.6-r0\
     py3-pip \
     py3-setuptools \
     make \
